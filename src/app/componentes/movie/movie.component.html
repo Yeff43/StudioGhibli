@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="row">
+    <!-- Card Principal -->
+    <div class="my-md-3 justify-content-center" *ngIf="movie">
+      <div class="container card d-flex align-items-center">
+        <div>
+          <h1 class="text-center pt-2">{{movie.title}}</h1>
+        </div>
+        <img class="img-fluid" [src]="movie.movie_banner" alt="image cap">
+        <div class="row">
+          <!-- Columna Uno -->
+          <div class="col-md-6 my-md-3 justify-content-center" *ngIf="movie">
+            <div class="" style="width: 18rem" routerLink="/movie/{{movie.id}}">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item"><p class="card-text fw-bold">Romanised Name:</p> {{movie.original_title}}</li>
+                <li class="list-group-item"><p class="card-text fw-bold">Description:</p> {{movie.description}}</li>
+                <li class="list-group-item"><p class="card-text fw-bold">Director:</p> {{movie.director}}</li>
+                <li class="list-group-item"><p class="card-text fw-bold">Producer:</p> {{movie.producer}}</li>
+                <li class="list-group-item"><p class="card-text fw-bold">Fecha de Lanzamiento:</p> {{movie.release_date | date: 'dd/MM/yyyy'}}</li>
+              </ul>
+            </div>
+          </div>
+          <!-- Columna dos -->
+          <div class="col-md-6 my-md-3 justify-content-center" *ngIf="movie">
+            <div class="" style="width: 18rem" routerLink="/movie/{{movie.id}}">
+              <ul class="list-group list-group-flush">
+
+                <li class="list-group-item"><p class="card-text fw-bold">Duración:</p> {{movie.running_time}} min.</li>
+
+                <li class="list-group-item">People
+                  <select class="list-group-item">
+                    <option value="" *ngFor="let m of movie.people;let i = index"><a [href]="m"><p class="card-text fw-bold">People</p> {{i}}</a></option>
+                  </select>
+                </li>
+
+                <li class="list-group-item"><p class="card-text fw-bold">Especies</p>
+                  <select class="list-group-item">
+                    <option value="" *ngFor="let m of movie.species;let i = index"><a [href]="m">Especies {{i}}</a></option>
+                  </select>
+                </li>
+
+                <li class="list-group-item"><p class="card-text fw-bold">Locations</p>
+                  <select class="list-group-item">
+                    <option value="" *ngFor="let m of movie.locations;let i = index"><a [href]="m">Locations {{i}}</a></option>
+                  </select>
+                </li>
+
+                <li class="list-group-item"><p class="card-text fw-bold">Vehicles</p>
+                  <select class="list-group-item">
+                    <option value="" *ngFor="let m of movie.vehicles;let i = index"><a [href]="m">Vehicles {{i}}</a></option>
+                  </select>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer container-fluid">
+          <div class="card-footer-body text-center">
+            <h4 class="card-text fw-bold">Score: {{movie.rt_score}}</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--
+<select class="list-group-item">
+  <option value="" *ngFor="let e of movies;let i = index"><a [href]="e">Episodio {{i + 1}}</a></option>
+</select>
+-->
